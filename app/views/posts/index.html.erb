@@ -1,15 +1,20 @@
-<h1>Hello#index</h1>
+<%= render "shared/header" %>
+
+<h1>食活しよう！！</h1>
 <p>Find me in app/views/hello/index.html.erb</p>
 <!-- Example single danger button -->
 <div class="btn-group">
   <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
+    カテゴリー
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" href="#">減塩</a></li>
+    <li><a class="dropdown-item" href="#">減糖</a></li>
+    <li><a class="dropdown-item" href="#">高タンパク質</a></li>
+    <li><a class="dropdown-item" href="#">肥満対策</a></li>
+    <li><a class="dropdown-item" href="#">風邪対策</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="#">Separated link</a></li>
   </ul>
 </div>
+<%= render "shared/footer" %>
