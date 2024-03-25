@@ -1,0 +1,33 @@
+.top-page-header {
+  background-color: #343a40; /* 灰色の背景色 */
+  height: 120px; /* ヘッダーの高さ */
+
+  .user-name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .nav {
+    .lists-right {
+      display: flex;
+      justify-content: flex-end; /* 横方向に右寄せ */
+      align-items: center; /* 垂直方向に中央揃え */
+    }
+
+    .nav-item {
+      margin-left: 20px; /* ボタン間の間隔 */
+    }
+
+    .btn {
+      width: 100px; /* ボタンの幅を100pxに設定 */
+    }
+  }
+
+  .navbar-brand.text-light {
+    svg {
+      width: 64px; /* アイコンの幅 */
+      height: 64px; /* アイコンの高さ */
+      margin-right: 20px; /* アイコンとテキストの間隔 */
+    }
+  }
+}

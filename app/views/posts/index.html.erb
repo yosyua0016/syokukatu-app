@@ -1,20 +1,58 @@
-<%= render "shared/header" %>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>食活しよう！！</h1>
-<p>Find me in app/views/hello/index.html.erb</p>
-<!-- Example single danger button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    カテゴリー
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">減塩</a></li>
-    <li><a class="dropdown-item" href="#">減糖</a></li>
-    <li><a class="dropdown-item" href="#">高タンパク質</a></li>
-    <li><a class="dropdown-item" href="#">肥満対策</a></li>
-    <li><a class="dropdown-item" href="#">風邪対策</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
-<%= render "shared/footer" %>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background-container {
+            background-image: url('<%= asset_path('syokukatu.png') %>');
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content-container {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="container content-container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
+                    <h1 class="text-center mb-4 fw-bold">食活しよう！！</h1>
+                    <p class="text-center fw-bold fs-5">当アプリは食事で生活習慣病などの身近な病気を</p>
+                    <p class="text-center fw-bold fs-5">予防できるようにしたいと思い作られたものです。</p>
+                    <p class="text-center fw-bold fs-5">予防につながる食材や料理を写真付きで</p>
+                    <p class="text-center fw-bold fs-5">カテゴリー別で投稿して下さい。</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="dropdown d-flex justify-content-center">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; height: 80px; font-size: 30px;">
+                            カテゴリー
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">減塩</a></li>
+                            <li><a class="dropdown-item" href="#">減糖</a></li>
+                            <li><a class="dropdown-item" href="#">高タンパク質</a></li>
+                            <li><a class="dropdown-item" href="#">肥満対策</a></li>
+                            <li><a class="dropdown-item" href="#">風邪対策</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 mt-3">
+                      <a href="post_form.html" class="btn btn-danger" style="width: 200px; height: 80px; font-size: 30px;">投稿する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

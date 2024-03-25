@@ -1,0 +1,12 @@
+.container-posts {
+  max-width: none; // コンテナーの最大幅を解除
+}
+
+.dropdown-posts {
+  width: 100%; // ドロップダウンが幅いっぱいに広がるようにする
+}
+
+.dropdown-menu-posts {
+  min-width: auto; // ドロップダウンメニューの幅を自動調整
+  width: 100%; // ドロップダウンメニューが幅いっぱいに広がるようにする
+}
