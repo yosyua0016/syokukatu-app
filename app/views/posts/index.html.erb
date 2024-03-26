@@ -51,6 +51,19 @@
                     </div>
                 </div>
             </div>
+            <!-- 最新の投稿を表示する部分 -->
+            <div class="row">
+              <% @latest_posts.each do |post| %>
+                <div class="col-lg-4 mb-4">
+                  <%= link_to post_path(post) do %>
+                    <%= image_tag post.image.variant(resize_to_fill: [300, 200]) if post.image.attached? %>
+                    <h3><%= post.title %></h3>
+                    <p><%= post.content.truncate(50) %></p>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <!-- /最新の投稿を表示する部分 -->
         </div>
     </div>
 </body>

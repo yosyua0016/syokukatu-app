@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="text-center mt-4">高タンパク質カテゴリーの投稿</h1>
+  <div class="row justify-content-center">
+    <!-- 投稿の表示 -->
+    <% @posts.each do |post| %>
+      <div class="col-md-4 mb-4">
+        <%= image_tag post.image.variant(resize: "300x200") if post.image.attached? %>
+        <h3 class="mt-2"><%= post.title %></h3>
+        <!-- その他の投稿情報 -->
+      </div>
+    <% end %>
+  </div>
+</div>

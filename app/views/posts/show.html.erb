@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+
+<% if @post.image.attached? %>
+  <%= image_tag @post.image %>
+<% end %>
+
+<p><%= @post.content %></p>

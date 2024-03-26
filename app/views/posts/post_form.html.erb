@@ -1,11 +1,15 @@
-<form>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">タイトル</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">内容</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="内容を入力してください"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">投稿する</button>
-</form>
+%= form_with(model: post, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.text_area :content, class: "form-control", placeholder: "内容を入力してください" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :image, class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+  </div>
+  <%= form.submit "投稿する", class: "btn btn-primary" %>
+<% end %>
