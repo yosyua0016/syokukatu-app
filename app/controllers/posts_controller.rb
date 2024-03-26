@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def new
     @post = Post.new
   end
@@ -23,27 +22,27 @@ class PostsController < ApplicationController
   end
 
   def reduce_salt
-    @posts = Post.where(category: "減塩")
+    @posts = Post.where(category_id: 1)
   end
 
   def reduce_sugar
-    @posts = Post.where(category: "減糖")
+    @posts = Post.where(category_id: 2)
   end
 
   def high_protein
-    @posts = Post.where(category: "高タンパク質")
+    @posts = Post.where(category_id: 3)
   end
 
   def obesity_prevention
-    @posts = Post.where(category: "肥満対策")
+    @posts = Post.where(category_id: 4)
   end
 
   def cold_prevention
-    @posts = Post.where(category: "風邪対策")
+    @posts = Post.where(category_id: 5)
   end
 
   def others
-    @posts = Post.where(category: "その他")
+    @posts = Post.where(category_id: 6)
   end
 
   private

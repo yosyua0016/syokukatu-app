@@ -31,34 +31,15 @@
         </div>
 
         <div class="mb-6 mt-5">
-          <%= form.label :category, class: "form-label" %>
+          <%= form.label :category_id, class: "form-label" %>
+          <% Category.all.each do |category| %>
           <div class="form-check">
-            <%= form.radio_button :category_id, 1, id: "reduce_salt", class: "form-check-input" %>
-            <%= form.label "reduce_salt", class: "form-check-label" %>
+            <%= form.radio_button :category_id, category.id, id: "category_#{category.id}", class: "form-check-input" %>
+            <%= form.label "category_#{category.id}", category.name, class: "form-check-label" %>
           </div>
-          <div class="form-check">
-            <%= form.radio_button :category_id, 2, id: "reduce_sugar", class: "form-check-input" %>
-            <%= form.label "reduce_sugar", class: "form-check-label" %>
-          </div>
-          <div class="form-check">
-            <%= form.radio_button :category_id, 3, id: "high_protein", class: "form-check-input" %>
-            <%= form.label "high_protein", class: "form-check-label" %>
-          </div>
-          <div class="form-check">
-            <%= form.radio_button :category_id, 4, id: "obesity_prevention", class: "form-check-input" %>
-            <%= form.label "obesity_prevention", class: "form-check-label" %>
-          </div>
-          <div class="form-check">
-            <%= form.radio_button :category_id, 5, id: "cold_prevention", class: "form-check-input" %>
-            <%= form.label "cold_prevention", class: "form-check-label" %>
-          </div>
-          <div class="form-check">
-            <%= form.radio_button :category_id, 6, id: "others", class: "form-check-input" %>
-            <%= form.label "others", class: "form-check-label" %>
-          </div>
+          <% end %>
         </div>
 
-        <div id="selected-categories" class="mt-3"></div> <!-- 選択したカテゴリーが表示される領域 -->
 
         <% if user_signed_in? %>
           <div class="text-center mt-5">
