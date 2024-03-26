@@ -32,36 +32,36 @@
                     <p class="text-center fw-bold fs-5">カテゴリー別で投稿して下さい。</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="dropdown d-flex justify-content-center">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="width: 200px; height: 80px; font-size: 30px;">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="width: 200px; height: 80px; font-size: 30px;">
                             カテゴリー
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">減塩</a></li>
-                            <li><a class="dropdown-item" href="#">減糖</a></li>
-                            <li><a class="dropdown-item" href="#">高タンパク質</a></li>
-                            <li><a class="dropdown-item" href="#">肥満対策</a></li>
-                            <li><a class="dropdown-item" href="#">風邪対策</a></li>
+                            <% Category.all.each do |category| %>
+                            <li><a class="dropdown-item" href="#"><%= category.name %></a></li>
+                            <% end %>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Separated link</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6 mt-3">
-                      <a href="post_form.html" class="btn btn-danger" style="width: 200px; height: 80px; font-size: 30px;">投稿する</a>
+                        <a href="<%= new_post_path %>" class="btn btn-danger"
+                            style="width: 200px; height: 80px; font-size: 30px;">投稿する</a>
                     </div>
                 </div>
             </div>
             <!-- 最新の投稿を表示する部分 -->
             <div class="row">
-              <% @latest_posts.each do |post| %>
+                <% @latest_posts.each do |post| %>
                 <div class="col-lg-4 mb-4">
-                  <%= link_to post_path(post) do %>
+                    <%= link_to post_path(post) do %>
                     <%= image_tag post.image.variant(resize_to_fill: [300, 200]) if post.image.attached? %>
                     <h3><%= post.title %></h3>
                     <p><%= post.content.truncate(50) %></p>
-                  <% end %>
+                    <% end %>
                 </div>
-              <% end %>
+                <% end %>
             </div>
             <!-- /最新の投稿を表示する部分 -->
         </div>

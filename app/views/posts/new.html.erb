@@ -3,73 +3,8 @@
     <div class="col-lg-8">
       <h1 class="text-center mb-4">新しい投稿</h1>
 
-      <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-        <% if @post.errors.any? %>
-          <div class="alert alert-danger">
-            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-            <ul>
-              <% @post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class="mb-6 mt-5">
-          <%= form.label :title, class: "form-label" %>
-          <%= form.text_field :title, class: "form-control" %>
-        </div>
-
-        <div class="mb-6 mt-5">
-          <%= form.label :content, class: "form-label" %>
-          <%= form.text_area :content, class: "form-control", rows: 5 %>
-        </div>
-
-        <div class="mb-6 mt-5">
-          <%= form.label :image, class: "form-label" %>
-          <%= form.file_field :image, class: "form-control", accept: "image/png" %>
-          <%= render 'form', post: @post %>
-        </div>
-
-        <div class="mb-6 mt-5">
-          <label class="form-label">カテゴリー</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="reduce_salt" value="減塩">
-            <label class="form-check-label" for="reduce_salt">減塩</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="reduce_sugar" value="減糖">
-            <label class="form-check-label" for="reduce_sugar">減糖</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="high_protein" value="高タンパク質">
-            <label class="form-check-label" for="high_protein">高タンパク質</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="obesity_prevention" value="肥満対策">
-            <label class="form-check-label" for="obesity_prevention">肥満対策</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="cold_prevention" value="風邪対策">
-            <label class="form-check-label" for="cold_prevention">風邪対策</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="category" id="others" value="その他">
-            <label class="form-check-label" for="others">その他</label>
-          </div>
-        </div>
-
-        <div id="selected-categories" class="mt-3"></div> <!-- 選択したカテゴリーが表示される領域 -->
-
-        <% if user_signed_in? %>
-          <div class="text-center mt-5">
-            <%= form.submit "投稿する", class: "btn btn-primary" %>
-          </div>
-        <% else %>
-          <p class="text-center mt-5">投稿するにはログインしてください。</p>
-        <% end %>
-      <% end %>
+      <%= render 'form', post: @post %>
+      
     </div>
   </div>
 </div>
-

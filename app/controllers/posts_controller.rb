@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
@@ -8,19 +9,9 @@ class PostsController < ApplicationController
     end
   end
 
+
   def new
     @post = Post.new
-  end
-
-  def create
-    @post = Post.new(post_params)
-    # フォームから受け取ったカテゴリーをデータベースに保存する
-    @post.category = params[:category]
-    if @post.save
-      redirect_to @post
-    else
-      render 'new'
-    end
   end
 
   def index
@@ -58,6 +49,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, :category).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :category_id, :image)
   end
 end

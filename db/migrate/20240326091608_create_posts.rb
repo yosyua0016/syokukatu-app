@@ -3,7 +3,8 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :posts do |t|
       t.string :title
       t.text :content
-      # 他のカラムも追加する場合はここに記述
+      t.references :user, foreign_key: true # ユーザーとの関連付け
+      t.references :category, foreign_key: true # カテゴリーとの関連付け
       t.timestamps
     end
   end
